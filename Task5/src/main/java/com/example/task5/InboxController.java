@@ -12,13 +12,14 @@ public class InboxController {
     private List<Item> items = new ArrayList<>();
 
     @GetMapping("/items")
-    public List<Item> getItems() {
+    public Object getItems() {
         return items;
     }
 
     @PostMapping("/items/{id}")
-    public void postItem(@PathVariable("id") Long id, @RequestBody Item item) {
+    public String postItem(@PathVariable("id") Long id, @RequestBody Item item) {
         items.add(item);
+        return "OK";
     }
 
 }
