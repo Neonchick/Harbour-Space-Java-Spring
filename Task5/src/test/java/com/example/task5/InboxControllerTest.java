@@ -14,7 +14,7 @@ public class InboxControllerTest {
 
         InboxController inboxController = new InboxController();
 
-        assertTrue(inboxController.getItems().isEmpty());
+        assertTrue(((List<Item>) inboxController.getItems()).isEmpty());
     }
 
     @Test
@@ -26,7 +26,7 @@ public class InboxControllerTest {
         Item item = new Item(id, status);
 
         inboxController.postItem(id, item);
-        List<Item> items = inboxController.getItems();
+        List<Item> items = (List<Item>) inboxController.getItems();
         assertEquals(items.size(),1);
         assertEquals(items.get(0), item);
     }
